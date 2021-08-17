@@ -1,4 +1,4 @@
-function granite_button(jsonButton, jsonTheme) {
+function graniteButton(jsonButton, jsonTheme) {
   /*---------------------------------------------
     Global Variables
     ---------------------------------------------*/

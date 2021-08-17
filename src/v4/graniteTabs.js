@@ -1,4 +1,4 @@
-function granite_tabs(jsonBlock, jsonTheme) {
+function graniteTabs(jsonBlock, jsonTheme) {
   /*---------------------------------------------
   Global Variables
   ---------------------------------------------*/
