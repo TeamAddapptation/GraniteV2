@@ -1,4 +1,4 @@
-export default function granite_tabs(jsonBlock, jsonTheme) {
+function granite_tabs(jsonBlock, jsonTheme) {
   /*---------------------------------------------
   Global Variables
   ---------------------------------------------*/
