@@ -46,7 +46,7 @@ let formsBlock = {
     {
       id: "Text & Icon Settings",
       title: "Text & Icon Settings",
-      g_type: "step",
+      g_type: "section",
       collapsed: true,
       dependency_not_blank: false,
       dependency_values: null,
@@ -189,7 +189,7 @@ let formsBlock = {
     {
       id: "design section",
       title: "Design Settings",
-      g_type: "step",
+      g_type: "section",
       collapsed: true,
       children: [
         {
@@ -288,7 +288,7 @@ let formsBlock = {
     {
       id: "alignment_spacing",
       title: "Alignment & Spacing",
-      g_type: "step",
+      g_type: "section",
       collapsed: true,
       children: [
         {
@@ -478,7 +478,7 @@ let formsBlock = {
     {
       id: "pagination-filters",
       title: "Pagination & Filter Settings",
-      g_type: "step",
+      g_type: "section",
       collapsed: true,
       children: [
         {
@@ -559,7 +559,7 @@ let formsBlock = {
     {
       id: "advanced-settings",
       title: "Advanced Settings",
-      g_type: "step",
+      g_type: "section",
       collapsed: true,
       children: [
         {
