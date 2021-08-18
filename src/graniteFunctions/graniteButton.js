@@ -1,4 +1,4 @@
-export default function granite_button(jsonButton, jsonTheme) {
+export default function graniteButton(jsonButton, jsonTheme) {
   /*---------------------------------------------
     Global Variables
     ---------------------------------------------*/
@@ -117,7 +117,7 @@ export default function granite_button(jsonButton, jsonTheme) {
   buttonCss.id = "g__css_" + id;
   buttonCss.innerHTML = `
     ${cssId} .g__elm_btn{
-        display: flex;
+        display: inline-flex;
         justify-content: center;
         align-items: center;
         font-family: ${font_style};

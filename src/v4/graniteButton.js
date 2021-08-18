@@ -117,7 +117,7 @@ function graniteButton(jsonButton, jsonTheme) {
   buttonCss.id = "g__css_" + id;
   buttonCss.innerHTML = `
     ${cssId} .g__elm_btn{
-        display: flex;
+        display: inline-flex;
         justify-content: center;
         align-items: center;
         font-family: ${font_style};
