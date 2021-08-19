@@ -92,8 +92,8 @@ const loginForm = {
   },
   records: [
     {
-      id: "email-username",
-      name: "email-username",
+      id: "username",
+      name: "username",
       title: "",
       g_type: "text",
       required: false,
@@ -108,8 +108,8 @@ const loginForm = {
       classes: "g__auth-field",
     },
     {
-      id: "login-password",
-      name: "login-password",
+      id: "password",
+      name: "password",
       title: "",
       g_type: "password",
       required: false,

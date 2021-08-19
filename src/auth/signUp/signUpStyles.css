@@ -70,3 +70,99 @@ p.a__sf-text {
 p.a__okta-text {
   color: #007dc1;
 }
+/* ----------
+Divider
+----------*/
+.a__divider {
+  margin-top: 5px;
+  width: 100%;
+}
+.a__divider h3 {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  color: #bfbfbf;
+  border-bottom: 1px solid #bfbfbf;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.a__divider h3 span {
+  background: #fff;
+  padding: 0 10px;
+}
+/* ----------
+Form Styles
+----------*/
+#sign-up-form .g__form_field {
+  padding: 10px 0;
+}
+#sign-up-form .g__form_field input.g__auth-field {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  border-radius: 50px;
+  border: 1px solid #bfbfbf;
+  padding: 15px 15px;
+  color: #a1a1a1;
+  font-size: 14px;
+}
+#sign-up-form #g__submit_cancel #g__submit_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 48px;
+  width: 100%;
+  margin: 15px 0;
+  border-radius: 50px;
+  background: linear-gradient(to left, #a64ff4, #24a9ff);
+  transition: all 2s;
+}
+#sign-up-form #g__submit_cancel #g__submit_btn:hover {
+  background: linear-gradient(to left, #803dbb, #1e8dd6);
+}
+#sign-up-form .g__password_container .g__password_show {
+  background: transparent;
+  color: #bfbfbf;
+  border-left: 0;
+  font-size: 24px;
+  right: 10px;
+}
+#sign-up-form input:-webkit-autofill,
+#sign-up-form input:-webkit-autofill:hover,
+#sign-up-form input:-webkit-autofill:focus {
+  border: 1px solid #4b4b4b;
+  -webkit-text-fill-color: #a1a1a1;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.a__legal p {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  border-radius: 50px;
+  color: #a1a1a1;
+  font-size: 12px;
+}
+.a__legal a {
+  text-decoration: underline;
+  color: #a1a1a1;
+}
+.a__sign-in a {
+  text-decoration: underline;
+  color: #a1a1a1;
+}
+.a__sign-in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  border-radius: 50px;
+  color: #a1a1a1;
+  font-size: 12px;
+}
