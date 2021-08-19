@@ -81,7 +81,7 @@ const resetForm = {
       required: false,
       options: "",
       value: "",
-      placeholder: "Email address",
+      placeholder: "Email or Username",
       radio_style: "button",
       dependency_not_blank: false,
       dependency_values: null,

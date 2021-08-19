@@ -115,7 +115,7 @@ Form Styles
 #sign-in-form .g__form_field {
   padding: 10px 0;
 }
-#sign-in-form .g__form_field input.g__auth-field {
+#sign-in-form .g__form_field.g__auth-field input {
   font-family: hero-new, sans-serif;
   font-weight: 400;
   border-radius: 50px;

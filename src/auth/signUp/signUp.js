@@ -74,7 +74,7 @@ const loginForm = {
     form_id: "",
     button_1_label: "",
     button_1_href: "",
-    submit_label: "Submit",
+    submit_label: "Create Account",
     cancel_label: "Cancel",
     max_width: "600px",
     enctype: "application/x-www-form-urlencoded",
