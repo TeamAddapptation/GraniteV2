@@ -1,0 +1,156 @@
+@import url("https://use.typekit.net/omg7yww.css");
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.auth-container {
+  font-family: "hero-new, sans-serif";
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.a__login-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}
+#no-account-link .g__elm_btn {
+  text-decoration: underline;
+}
+#no-account-link .g__elm_btn,
+#sso-link .g__elm_btn,
+#forgot-password-link {
+  text-decoration: underline;
+}
+/* ----------
+Sign in Links
+----------*/
+.a__alt-sign-in {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.g__circle-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 30px;
+  border: 1px solid #b4b4b4;
+}
+.a__sso-link {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+.a__sso-logo {
+  font-family: "hero-new, sans-serif";
+  font-weight: 400;
+  width: auto;
+  height: 25px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  z-index: 15;
+}
+p.a__sso-text {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 14px;
+}
+p.a__google-text {
+  color: #101010;
+}
+p.a__sf-text {
+  color: #0d9dda;
+}
+p.a__okta-text {
+  color: #007dc1;
+}
+/* ----------
+Divider
+----------*/
+.a__divider {
+  margin-top: 5px;
+  width: 100%;
+}
+.a__divider h3 {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  color: #bfbfbf;
+  border-bottom: 1px solid #bfbfbf;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.a__divider h3 span {
+  background: #fff;
+  padding: 0 10px;
+}
+/* ----------
+Form Styles
+----------*/
+#sign-in-form .g__form_field {
+  padding: 10px 0;
+}
+#sign-in-form .g__form_field input.g__auth-field {
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  border-radius: 50px;
+  border: 1px solid #bfbfbf;
+  padding: 15px 15px;
+  color: #a1a1a1;
+  font-size: 14px;
+}
+#sign-in-form #g__submit_cancel #g__submit_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 48px;
+  width: 100%;
+  margin: 15px 0;
+  border-radius: 50px;
+  background: linear-gradient(to left, #a64ff4, #24a9ff);
+  transition: all 2s;
+}
+#sign-in-form #g__submit_cancel #g__submit_btn:hover {
+  background: linear-gradient(to left, #803dbb, #1e8dd6);
+}
+#sign-in-form .g__password_container .g__password_show {
+  background: transparent;
+  color: #bfbfbf;
+  border-left: 0;
+  font-size: 24px;
+  right: 10px;
+}
+#sign-in-form input:-webkit-autofill,
+#sign-in-form input:-webkit-autofill:hover,
+#sign-in-form input:-webkit-autofill:focus {
+  border: 1px solid #4b4b4b;
+  -webkit-text-fill-color: #a1a1a1;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

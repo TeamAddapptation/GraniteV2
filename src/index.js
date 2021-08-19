@@ -1,11 +1,9 @@
 import Granite from "./granite";
 import Logic from "./logic";
-import AuthLogic from "./auth/authLogic";
 
 import "./styles/style.css";
 import "./styles/style.scss";
 import "./styles/style.sass";
-import "./auth/authStyles.css";
 
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 function getRandomNumberBetween(min, max) {

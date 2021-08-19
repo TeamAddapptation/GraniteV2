@@ -9,20 +9,21 @@ export default function granite_header(jsonHeader, jsonTheme) {
   const mode = t.mode || "midight";
   const cssId = "#" + id;
   const granite_div = document.getElementById(id);
+
   /*---------------------------------------------
   Convert Hex to RGB
   ---------------------------------------------*/
-    function hexToRgb(hex){
-      var c;
-      if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-          c= hex.substring(1).split('');
-          if(c.length== 3){
-              c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-          }
-          c= '0x'+c.join('');
-          return [(c>>16)&255, (c>>8)&255, c&255].join(',');
+  function hexToRgb(hex) {
+    var c;
+    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+      c = hex.substring(1).split("");
+      if (c.length == 3) {
+        c = [c[0], c[0], c[1], c[1], c[2], c[2]];
       }
-      return `${hex} is not a valid Hex code.`;
+      c = "0x" + c.join("");
+      return [(c >> 16) & 255, (c >> 8) & 255, c & 255].join(",");
+    }
+    return `${hex} is not a valid Hex code.`;
   }
   /*---------------------------------------------
   Set The mode
@@ -36,7 +37,7 @@ export default function granite_header(jsonHeader, jsonTheme) {
   //text
   let header_size = o.header_size || "h1";
   let font_size;
-  switch (header_size){
+  switch (header_size) {
     case "h1":
       font_size = !!o.font_size ? o.font_size : "38";
       break;
@@ -56,29 +57,29 @@ export default function granite_header(jsonHeader, jsonTheme) {
       font_size = !!o.font_size ? o.font_size : "10";
       break;
   }
-  switch (t.mode){
+  switch (t.mode) {
     case "standard":
-      !!o.text_color ? "" : o.text_color = "#000000";
-    break;
+      !!o.text_color ? "" : (o.text_color = "#000000");
+      break;
     default:
-      !!o.text_color ? "" : o.text_color = "#ffffff";
-    break;
+      !!o.text_color ? "" : (o.text_color = "#ffffff");
+      break;
   }
-  !!o.background_color ? "" : o.background_color = "#ffffff";
-  !!o.background_opacity ? "" : o.background_opacity = "0";
-  !!o.border_color ? "" : o.border_color = "#ffffff";
-  !!o.border_width ? "" : o.border_width = "0";
-  !!o.border_radius ? "" : o.border_radius = "5";
+  !!o.background_color ? "" : (o.background_color = "#ffffff");
+  !!o.background_opacity ? "" : (o.background_opacity = "0");
+  !!o.border_color ? "" : (o.border_color = "#ffffff");
+  !!o.border_width ? "" : (o.border_width = "0");
+  !!o.border_radius ? "" : (o.border_radius = "5");
 
-  !!o.padding_top ? "" : o.padding_top = "0";
-  !!o.padding_right ? "" : o.padding_right = "0";
-  !!o.padding_bottom ? "" : o.padding_bottom = "0";
-  !!o.padding_left ? "" : o.padding_left = "0";
+  !!o.padding_top ? "" : (o.padding_top = "0");
+  !!o.padding_right ? "" : (o.padding_right = "0");
+  !!o.padding_bottom ? "" : (o.padding_bottom = "0");
+  !!o.padding_left ? "" : (o.padding_left = "0");
 
-  !!o.margin_top ? "" : o.margin_top = "0";
-  !!o.margin_right ? "" : o.margin_right = "0";
-  !!o.margin_bottom ? "" : o.margin_bottom = "0";
-  !!o.margin_left ? "" : o.margin_left = "0";
+  !!o.margin_top ? "" : (o.margin_top = "0");
+  !!o.margin_right ? "" : (o.margin_right = "0");
+  !!o.margin_bottom ? "" : (o.margin_bottom = "0");
+  !!o.margin_left ? "" : (o.margin_left = "0");
 
   let header_text = o.header_text || "Heading";
 
@@ -134,7 +135,7 @@ export default function granite_header(jsonHeader, jsonTheme) {
         font-family: ${font_style};
         font-weight: ${font_weight};
         font-style: ${italic};
-        color: ${text_color} !important;
+        color: ${text_color};
         font-size: ${font_size + "px"};
         text-align: ${alignText};
         width: ${header_width};
@@ -160,11 +161,13 @@ export default function granite_header(jsonHeader, jsonTheme) {
     Wrapper and Element
     ---------------------------------------------*/
   const header = document.createElement(header_size);
-  !!o.id ? header.id = o.id : "";
+  !!o.id ? (header.id = o.id) : "";
   header.setAttribute("class", "g__elm_header");
-  !!o.classes ? header.classList.add(o.classes): "";
-  header.setAttribute('data-micro-id', id);
-  !!r.addapptation_id ? header.setAttribute('data-record-id', r.addapptation_id) : "";
+  !!o.classes ? header.classList.add(o.classes) : "";
+  header.setAttribute("data-micro-id", id);
+  !!r.addapptation_id
+    ? header.setAttribute("data-record-id", r.addapptation_id)
+    : "";
   header.innerHTML = header_text;
   /*---------------------------------------------
     Append micro to the DOM

@@ -1973,6 +1973,7 @@ ${cssId} .g__check_container [type="checkbox"]:disabled + label {
   /* -------------------- Standard Field Attributes ----------------------*/
   function basicAttributes(r, input, class_name) {
     input.setAttribute("class", class_name);
+    !!r.classes ? input.classList.add(r.classes) : "";
     !!r.g_type ? input.setAttribute("type", r.g_type) : "";
     !!attr__form_id ? input.setAttribute("form_id", attr__form_id) : "";
     !!r.name ? input.setAttribute("name", r.name) : "";
