@@ -1,4 +1,3 @@
-@import url("https://use.typekit.net/omg7yww.css");
 .auth-wrapper {
   display: flex;
   justify-content: center;
@@ -14,6 +13,22 @@
   align-items: center;
   width: 500px;
 }
+
+.a__login-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}
+#no-account-link .g__elm_btn {
+  text-decoration: underline;
+}
+#no-account-link .g__elm_btn,
+#sso-link .g__elm_btn,
+#forgot-password-link {
+  text-decoration: underline;
+}
 /* ----------
 Sign in Links
 ----------*/
@@ -21,54 +36,18 @@ Sign in Links
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
 }
 .g__circle-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 15px;
+  width: 60px;
+  height: 60px;
+  padding: 15px;
   margin: 10px;
-  border-radius: 30px;
   border: 1px solid #b4b4b4;
-}
-.a__sso-link {
-  display: flex;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-}
-.a__sso-logo {
-  font-family: "hero-new, sans-serif";
-  font-weight: 400;
-  width: auto;
-  height: 25px;
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  z-index: 15;
-}
-p.a__sso-text {
-  font-family: hero-new, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  margin: 5px;
-  text-decoration: none;
-  font-size: 14px;
-}
-p.a__google-text {
-  color: #101010;
-}
-p.a__sf-text {
-  color: #0d9dda;
-}
-p.a__okta-text {
-  color: #007dc1;
+  border-radius: 50%;
 }
 /* ----------
 Divider
@@ -81,7 +60,6 @@ Divider
   font-family: hero-new, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
   width: 100%;
   text-align: center;
   color: #bfbfbf;
@@ -96,13 +74,10 @@ Divider
 /* ----------
 Form Styles
 ----------*/
-#sign-up-form .g__form_field {
+#sso-login-form .g__form_field {
   padding: 10px 0;
 }
-#sign-up-form .g__form_field.g__auth-field {
-  padding-bottom: 5px;
-}
-#sign-up-form .g__form_field.g__auth-field input {
+#sso-login-form .g__form_field input.g__field_text {
   font-family: hero-new, sans-serif;
   font-weight: 400;
   border-radius: 50px;
@@ -111,7 +86,7 @@ Form Styles
   color: #a1a1a1;
   font-size: 14px;
 }
-#sign-up-form #g__submit_cancel #g__submit_btn {
+#sso-login-form #g__submit_cancel #g__submit_btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -123,51 +98,28 @@ Form Styles
   background: linear-gradient(to left, #a64ff4, #24a9ff);
   transition: all 2s;
 }
-#sign-up-form #g__submit_cancel #g__submit_btn:hover {
+#sso-login-form #g__submit_cancel #g__submit_btn:hover {
   background: linear-gradient(to left, #803dbb, #1e8dd6);
 }
-#sign-up-form .g__password_container .g__password_show {
+#sso-login-form .g__password_show {
   background: transparent;
   color: #bfbfbf;
   border-left: 0;
   font-size: 24px;
   right: 10px;
 }
-#sign-up-form input:-webkit-autofill,
-#sign-up-form input:-webkit-autofill:hover,
-#sign-up-form input:-webkit-autofill:focus {
+#sso-login-form input:-webkit-autofill,
+#sso-login-form input:-webkit-autofill:hover,
+#sso-login-form input:-webkit-autofill:focus {
   border: 1px solid #4b4b4b;
   -webkit-text-fill-color: #a1a1a1;
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
   transition: background-color 5000s ease-in-out 0s;
 }
-/* ----------
-Legal Footer
-----------*/
-.a__legal p {
+.a__sso-login-back a {
   font-family: hero-new, sans-serif;
   font-weight: 400;
-  border-radius: 50px;
-  color: #a1a1a1;
-  font-size: 12px;
-}
-.a__legal a {
   text-decoration: underline;
-  color: #a1a1a1;
-}
-.a__sign-in a {
-  text-decoration: underline;
-  color: #a1a1a1;
-}
-.a__sign-in {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  font-family: hero-new, sans-serif;
-  font-weight: 400;
-  border-radius: 50px;
   color: #a1a1a1;
   font-size: 12px;
 }
