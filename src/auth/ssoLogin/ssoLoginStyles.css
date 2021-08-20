@@ -44,6 +44,7 @@ Sign in Links
   align-items: center;
   width: 60px;
   height: 60px;
+  width: 122px;
   padding: 15px;
   margin: 10px;
   border: 1px solid #b4b4b4;
@@ -74,17 +75,20 @@ Divider
 /* ----------
 Form Styles
 ----------*/
-#sso-login-form .g__form_field {
-  padding: 10px 0;
+#sso-login-form .g__form_field.g__auth-field {
+  padding: 8px 0;
 }
-#sso-login-form .g__form_field input.g__field_text {
+#sso-login-form .g__form_field.g__auth-field input {
   font-family: hero-new, sans-serif;
   font-weight: 400;
   border-radius: 50px;
   border: 1px solid #bfbfbf;
   padding: 15px 15px;
-  color: #a1a1a1;
+  color: #5d5d5d;
   font-size: 14px;
+}
+#sso-login-form .g__form_field.g__auth-field input:focus {
+  border: 1px solid #4788ff;
 }
 #sso-login-form #g__submit_cancel #g__submit_btn {
   display: flex;
@@ -111,7 +115,7 @@ Form Styles
 #sso-login-form input:-webkit-autofill,
 #sso-login-form input:-webkit-autofill:hover,
 #sso-login-form input:-webkit-autofill:focus {
-  border: 1px solid #4b4b4b;
+  border: 1px solid #4788ff;
   -webkit-text-fill-color: #a1a1a1;
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
   transition: background-color 5000s ease-in-out 0s;

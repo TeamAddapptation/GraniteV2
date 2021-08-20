@@ -31,6 +31,7 @@ const signUpHeader = {
   options: {
     header_text: "Let’s Get Started",
     text_color: "#000000",
+    align_text: "center",
     font_size: "36",
     margin_bottom: "20",
   },
@@ -128,6 +129,7 @@ const loginForm = {
       title: "",
       g_type: "password",
       required: true,
+      pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&]){8,}$",
       options: "",
       value: "",
       show_password_option: true,

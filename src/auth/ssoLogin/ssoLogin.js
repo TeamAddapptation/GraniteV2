@@ -87,6 +87,7 @@ const resetForm = {
       dependency_values: null,
       dependency_field: null,
       length: null,
+      classes: "g__auth-field",
     },
   ],
 };

@@ -28,6 +28,7 @@ Sign in Links
   justify-content: center;
   align-items: center;
   padding: 10px 15px;
+  width: 119px;
   margin: 10px;
   border-radius: 30px;
   border: 1px solid #b4b4b4;
@@ -96,11 +97,8 @@ Divider
 /* ----------
 Form Styles
 ----------*/
-#sign-up-form .g__form_field {
-  padding: 10px 0;
-}
 #sign-up-form .g__form_field.g__auth-field {
-  padding-bottom: 5px;
+  padding: 8px 0;
 }
 #sign-up-form .g__form_field.g__auth-field input {
   font-family: hero-new, sans-serif;
@@ -108,8 +106,11 @@ Form Styles
   border-radius: 50px;
   border: 1px solid #bfbfbf;
   padding: 15px 15px;
-  color: #a1a1a1;
+  color: #5d5d5d;
   font-size: 14px;
+}
+#sign-up-form .g__form_field.g__auth-field input:focus {
+  border: 1px solid #4788ff;
 }
 #sign-up-form #g__submit_cancel #g__submit_btn {
   display: flex;
@@ -133,10 +134,10 @@ Form Styles
   font-size: 20px;
   right: 10px;
 }
-#sign-up-form input:-webkit-autofill,
-#sign-up-form input:-webkit-autofill:hover,
-#sign-up-form input:-webkit-autofill:focus {
-  border: 1px solid #4b4b4b;
+#sign-up-form .g__form_field.g__auth-field input:-webkit-autofill,
+#sign-up-form .g__form_field.g__auth-field input:-webkit-autofill:hover,
+#sign-up-form .g__form_field.g__auth-field input:-webkit-autofill:focus {
+  border: 1px solid #4788ff;
   -webkit-text-fill-color: #a1a1a1;
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
   transition: background-color 5000s ease-in-out 0s;
@@ -191,4 +192,28 @@ Password Validator
   font-size: 10px;
   margin-right: 10px;
   color: #bfbfbf;
+}
+/* ----------
+Mobile Styles
+----------*/
+@media only screen and (max-width: 768px) {
+  .a__alt-sign-in {
+    flex-direction: column;
+  }
+  .g__circle-link {
+    width: 300px;
+  }
+  .auth-wrapper {
+    margin-top: 25px;
+    height: auto;
+  }
+  .auth-container {
+    width: 90vw;
+  }
+  .a__email-req-list {
+    flex-direction: column;
+  }
+  #sign-in-form .g__form_field.g__auth-field {
+    padding: 10px 0;
+  }
 }

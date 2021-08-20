@@ -99,11 +99,7 @@ const resetForm = {
       options: "",
       value: "",
       placeholder: "Email address",
-      radio_style: "button",
-      dependency_not_blank: false,
-      dependency_values: null,
-      dependency_field: null,
-      length: null,
+      classes: "g__auth-field",
     },
   ],
 };
