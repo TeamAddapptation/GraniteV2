@@ -95,7 +95,7 @@ const resetForm = {
       name: "email",
       title: "",
       g_type: "text",
-      required: false,
+      required: true,
       options: "",
       value: "",
       placeholder: "Email address",
@@ -116,7 +116,7 @@ const resetBack = {
   name: "Sign in with",
   feature: "text",
   options: {
-    text: "<p>Go back to <a href='#'>login <i class='far fa-arrow-right'></i></a></p>",
+    text: "<p>Go back to <a href='/sign_in'>login <i class='far fa-arrow-right'></i></a></p>",
     font_color: "#B4B4B4",
     g_font_size: "12",
     text_align: "center",

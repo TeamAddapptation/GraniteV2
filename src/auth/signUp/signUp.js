@@ -97,7 +97,7 @@ const loginForm = {
       name: "name",
       title: "",
       g_type: "text",
-      required: false,
+      required: true,
       options: "",
       value: "",
       placeholder: "Full Name",
@@ -112,7 +112,7 @@ const loginForm = {
       name: "email",
       title: "",
       g_type: "email",
-      required: false,
+      required: true,
       options: "",
       value: "",
       placeholder: "Email",
@@ -127,7 +127,7 @@ const loginForm = {
       name: "password",
       title: "",
       g_type: "password",
-      required: false,
+      required: true,
       options: "",
       value: "",
       show_password_option: true,
@@ -138,7 +138,82 @@ const loginForm = {
       dependency_field: null,
       length: null,
       classes: "g__auth-field",
+      id: "a__sign-up-password",
     },
   ],
 };
 graniteForm(loginForm, theme);
+
+/*------------------------
+Email Strength Validation
+-------------------------*/
+// Build the check items
+const passCont = document.querySelector(".g__password_container");
+const validationCont = document.createElement("div");
+validationCont.classList.add("a__email-req-list");
+const lowercase = document.createElement("div");
+
+lowercase.classList.add("a__validate-item");
+lowercase.id = "a__pass-lowercase";
+lowercase.innerHTML =
+  "<i class='fas fa-circle a__circle-indicator a__lower-icon'></i> One lowercase letter";
+validationCont.appendChild(lowercase);
+
+const uppercase = document.createElement("div");
+uppercase.classList.add("a__validate-item");
+uppercase.id = "a__pass-uppercase";
+uppercase.innerHTML =
+  "<i class='fas fa-circle a__circle-indicator a__upper-icon'></i> One uppercase letter";
+validationCont.appendChild(uppercase);
+
+const length = document.createElement("div");
+length.classList.add("a__validate-item");
+length.id = "a__pass-length";
+length.innerHTML =
+  "<i class='fas fa-circle a__circle-indicator a__length-icon'></i> 8 character minimum";
+validationCont.appendChild(length);
+
+const symbols = document.createElement("div");
+symbols.classList.add("a__validate-item");
+symbols.id = "a__pass-symbols";
+symbols.innerHTML =
+  "<i class='fas fa-circle a__circle-indicator a__symbol-icon'></i> One symbol";
+validationCont.appendChild(symbols);
+
+passCont.after(validationCont);
+
+// Validate each item on keyup
+const userPassword = document.getElementById("a__sign-up-password");
+const lowerIcon = document.querySelector(".a__lower-icon");
+const upperIcon = document.querySelector(".a__upper-icon");
+const lengthIcon = document.querySelector(".a__length-icon");
+const symbolIcon = document.querySelector(".a__symbol-icon");
+userPassword.addEventListener("keyup", () => {
+  let password = userPassword.value;
+  //Lowercase Check
+  const lowercaseLetters = /[a-z]/g;
+  if (password.match(lowercaseLetters)) {
+    lowerIcon.style.color = "#65C963";
+  } else {
+    lowerIcon.style.color = "#BFBFBF";
+  }
+  //Uppercase Check
+  const uppercaseLetters = /[A-Z]/g;
+  if (password.match(uppercaseLetters)) {
+    upperIcon.style.color = "#65C963";
+  } else {
+    upperIcon.style.color = "#BFBFBF";
+  }
+  //Length Check
+  if (password.length >= 8) {
+    lengthIcon.style.color = "#65C963";
+  } else {
+    lengthIcon.style.color = "#BFBFBF";
+  }
+  const symbol = /[$-/:-?{-~!"^_`\[\]]/g;
+  if (password.match(symbol)) {
+    symbolIcon.style.color = "#65C963";
+  } else {
+    symbolIcon.style.color = "#BFBFBF";
+  }
+});

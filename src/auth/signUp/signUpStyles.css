@@ -130,7 +130,7 @@ Form Styles
   background: transparent;
   color: #bfbfbf;
   border-left: 0;
-  font-size: 24px;
+  font-size: 20px;
   right: 10px;
 }
 #sign-up-form input:-webkit-autofill,
@@ -170,4 +170,25 @@ Legal Footer
   border-radius: 50px;
   color: #a1a1a1;
   font-size: 12px;
+}
+/* ----------
+Password Validator
+----------*/
+.a__email-req-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.a__validate-item {
+  flex: 2 0 45%;
+  font-family: hero-new, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #5d5d5d;
+  margin: 5px;
+}
+.a__circle-indicator {
+  font-size: 10px;
+  margin-right: 10px;
+  color: #bfbfbf;
 }
