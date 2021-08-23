@@ -88,7 +88,7 @@ Form Styles
   font-size: 14px;
 }
 #sso-login-form .g__form_field.g__auth-field input:focus {
-  border: 1px solid #4788ff;
+  border: 1px solid #5d50e6;
 }
 #sso-login-form #g__submit_cancel #g__submit_btn {
   display: flex;
@@ -99,11 +99,41 @@ Form Styles
   width: 100%;
   margin: 15px 0;
   border-radius: 50px;
-  background: linear-gradient(to left, #a64ff4, #24a9ff);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    linear-gradient(
+      117.38deg,
+      #7deef5 -32.75%,
+      #4788ff 25.74%,
+      #aa4cfc 79.94%,
+      #f4a1f5 132.41%
+    );
   transition: all 2s;
 }
 #sso-login-form #g__submit_cancel #g__submit_btn:hover {
-  background: linear-gradient(to left, #803dbb, #1e8dd6);
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    linear-gradient(
+      117.38deg,
+      #7deef5 -32.75%,
+      #4788ff 25.74%,
+      #aa4cfc 79.94%,
+      #f4a1f5 132.41%
+    );
+}
+#sso-login-form #g__submit_cancel #g__submit_btn:active {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    linear-gradient(
+      117.38deg,
+      #7deef5 -32.75%,
+      #4788ff 25.74%,
+      #aa4cfc 79.94%,
+      #f4a1f5 132.41%
+    );
 }
 #sso-login-form .g__password_show {
   background: transparent;
@@ -115,7 +145,7 @@ Form Styles
 #sso-login-form input:-webkit-autofill,
 #sso-login-form input:-webkit-autofill:hover,
 #sso-login-form input:-webkit-autofill:focus {
-  border: 1px solid #4788ff;
+  border: 1px solid #5d50e6;
   -webkit-text-fill-color: #a1a1a1;
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
   transition: background-color 5000s ease-in-out 0s;

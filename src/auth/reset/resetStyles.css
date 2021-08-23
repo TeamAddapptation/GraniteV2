@@ -88,7 +88,7 @@ Form Styles
   font-size: 14px;
 }
 #reset-form .g__form_field.g__auth-field input:focus {
-  border: 1px solid #4788ff;
+  border: 1px solid #5d50e6;
 }
 #reset-form #g__submit_cancel #g__submit_btn {
   display: flex;
@@ -99,7 +99,7 @@ Form Styles
   width: 100%;
   margin: 15px 0;
   border-radius: 50px;
-  background: #4788ff;
+  background: #5d50e6;
   transition: all 0.5s;
 }
 #reset-form #g__submit_cancel #g__submit_btn:hover {
@@ -115,7 +115,7 @@ Form Styles
 #reset-form input:-webkit-autofill,
 #reset-form input:-webkit-autofill:hover,
 #reset-form input:-webkit-autofill:focus {
-  border: 1px solid #4788ff;
+  border: 1px solid #5d50e6;
   -webkit-text-fill-color: #a1a1a1;
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
   transition: background-color 5000s ease-in-out 0s;
