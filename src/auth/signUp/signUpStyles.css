@@ -26,14 +26,15 @@ Sign in Links
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 15px;
-  width: 119px;
+  padding: 5px 15px;
+  width: 150px;
   margin: 10px;
   border-radius: 30px;
   border: 1px solid #b4b4b4;
 }
 .g__circle-link:hover {
   background: #f7f7f7;
+  text-decoration: none;
   border: 1px solid #b4b4b4;
 }
 .g__circle-link:active {
