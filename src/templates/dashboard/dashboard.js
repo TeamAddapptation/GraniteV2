@@ -75,15 +75,6 @@ let dashboardTabs = {
 graniteTabs(dashboardTabs, theme);
 
 /*------------------------
-Mobile Menu Toggle
--------------------------*/
-const toggleIcon = document.getElementById("a__mobile-toggle");
-const menu = document.querySelector(".a__nav-container");
-toggleIcon.addEventListener("click", () => {
-  menu.classList.toggle("a__menu-active");
-});
-
-/*------------------------
 Dashboard Tabs
 -------------------------*/
 let bodyTabs = {
@@ -157,3 +148,22 @@ let bodyTabs = {
   ],
 };
 graniteTabs(bodyTabs, theme);
+
+/*------------------------
+Account Dropdown - Desktop
+-------------------------*/
+let dropdownMenus = document.querySelectorAll(".a__dropdown");
+dropdownMenus.forEach((menu) => {
+  const dropdownContainer = menu.querySelector(".a__dropdown-container");
+  console.log(dropdownContainer);
+  menu.addEventListener("click", (e) => {
+    dropdownContainer.classList.toggle("a__active-dropdown");
+  });
+});
+
+const mobileMenu = document.querySelector(".a__hamburger-container");
+const sideMenu = document.querySelector(".a__desktop-header");
+
+mobileMenu.addEventListener("click", () => {
+  sideMenu.classList.toggle("a__active-mobile-menu");
+});
