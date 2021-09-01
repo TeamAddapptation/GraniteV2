@@ -19,31 +19,60 @@
     />
   </head>
   <body id="dashboard">
-    <div id="a__mobile-toggle">
-      <i class="far fa-angle-right"></i>
-    </div>
     <div class="a__nav-container">
-      <div class="a__logo-container">
-        <a href="/"
-          ><img
-            src="https://cdn.addapptation.com/addapptation-customer-assets/addapptation-micros/navigation/scorecard_white.png"
-        /></a>
+      <div class="a__desktop-header">
+        <div class="a__mobile-settings-header">
+          <a href="/">
+            <i class="fal fa-angle-left"></i>
+          </a>
+          <h2 class="a__settings-text">Settings</h2>
+        </div>
+        <div class="a__logo-container">
+          <a href="/"
+            ><img
+              class="a__desktop-logo"
+              src="https://cdn.addapptation.com/addapptation-customer-assets/addapptation-micros/navigation/scorecard_white.png"
+            />
+            <img
+              class="a__mobile-logo"
+              src="https://deployment-engine.herokuapp.com/storage?action_type=get_blob&container_name=addapptation-qa&blob_name=granite/scorecard_black.png"
+            />
+          </a>
+        </div>
+        <div class="a__menu-items">
+          <div class="a__item a__dropdown">
+            <a class="a__link a__profile-logo">E</a>
+            <div class="a__dropdown-container">
+              <div class="a__dropdown-item">
+                <a class="a__dropdown-link">Profile</a>
+              </div>
+              <div class="a__dropdown-item">
+                <a class="a__dropdown-link">Account Settings</a>
+              </div>
+              <div class="a__dropdown-item">
+                <a class="a__dropdown-link">Billing</a>
+              </div>
+              <div class="a__dropdown-item">
+                <a class="a__dropdown-link">Data Connections</a>
+              </div>
+              <div class="a__dropdown-item">
+                <a class="a__dropdown-link">Privacy</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="a__menu-items">
-        <!-- <div class="a__item">
-          <a class="a__link">Permissions</a>
+      <div class="a__mobile-header">
+        <div class="a__hamburger-container">
+          <div class="a__bar1"></div>
+          <div class="a__bar2"></div>
+          <div class="a__bar3"></div>
         </div>
-        <div class="a__item">
-          <a class="a__link">Billing</a>
-        </div>
-        <div class="a__item">
-          <a class="a__link">Data Connections</a>
-        </div>
-        <div class="a__item">
-          <a class="a__link">Privacy</a>
-        </div> -->
-        <div class="a__item">
-          <a class="a__link a__profile-logo">E</a>
+        <div class="a__logo-container-mobile">
+          <a href="/"
+            ><img
+              src="https://deployment-engine.herokuapp.com/storage?action_type=get_blob&container_name=addapptation-qa&blob_name=granite/scorecard_black.png"
+          /></a>
         </div>
       </div>
     </div>
