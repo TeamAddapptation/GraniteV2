@@ -1,0 +1,1 @@
+import "./wlNoAccess.css";
