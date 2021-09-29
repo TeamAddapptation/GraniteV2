@@ -1,6 +1,16 @@
 @import url("https://use.typekit.net/omg7yww.css");
 
 /* ---------- Wrapper & Container ---------- */
+.wl__logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px;
+}
+.wl__logo img {
+  width: 150px;
+  height: auto;
+}
 .wl__auth-wrapper {
   display: flex;
   justify-content: center;
