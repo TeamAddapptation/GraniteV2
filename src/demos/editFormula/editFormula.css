@@ -1,0 +1,26 @@
+.a__new-formula-name {
+  display: flex;
+}
+.a__new-formula-name input {
+  border: 0;
+  flex: 1;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  margin-left: 15px;
+  font-size: 16px;
+  color: #5d5d5d;
+}
+.a__new-formula-name input:active {
+  border: 0;
+}
+.a__ied {
+  display: flex;
+}
+.a__ied-editor {
+  margin-top: 25px;
+  text-align: left;
+  background: #333;
+  flex: 1;
+  color: #fff;
+  border: 0;
+}
