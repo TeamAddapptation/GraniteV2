@@ -101,8 +101,9 @@ Mobile Styles
     box-shadow: 2px 2px 9px rgba(0, 0, 0, 0);
   }
   .wl__headline {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+    justify-content: flex-start;
   }
   .wl__headline h1 {
     text-align: left;
