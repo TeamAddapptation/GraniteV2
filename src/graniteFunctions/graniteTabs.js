@@ -1,4 +1,4 @@
-export default function granite_tabs(jsonBlock, jsonTheme) {
+export default function graniteTabs(jsonBlock, jsonTheme) {
   /*---------------------------------------------
   Global Variables
   ---------------------------------------------*/
@@ -318,9 +318,6 @@ export default function granite_tabs(jsonBlock, jsonTheme) {
     ${cssId} .g__tab_block a.g__tab_block_wrap.g__active i{
       color: ${fontActiveColor};
     }
-    ${cssId} .g__tab_block .g__tab_block_wrap p{
-      margin-bottom: 2px;
-    }
     ${cssId} .g__tab_block a.g__tab_block_link:hover{
       background: #054a5c;
     }
@@ -590,9 +587,10 @@ export default function granite_tabs(jsonBlock, jsonTheme) {
 
   let tabsWrapper = document.createElement("div");
   tabsWrapper.classList.add("g__tabs_wrapper");
+  !!o.id ? tabsWrapper.setAttribute("id", o.id) : "";
 
   let tabsContainer = document.createElement("div");
-  !!o.id ? tabsContainer.setAttribute("id", o.id) : "";
+
   tabsContainer.classList.add("g__tabs_container");
   direction === "row"
     ? tabsContainer.classList.add("g__step_horizontal")

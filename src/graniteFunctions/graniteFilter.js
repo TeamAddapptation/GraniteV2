@@ -1,4 +1,4 @@
-export default function granite_filter(jsonBlock, jsonTheme) {
+export default function graniteFilter(jsonBlock, jsonTheme) {
   /*---------------------------------------------
     Global Variables
     ---------------------------------------------*/
@@ -78,32 +78,28 @@ export default function granite_filter(jsonBlock, jsonTheme) {
     margin-right: ${marginRight};
     margin-bottom: ${marginBottom};
     margin-left: ${marginLeft};
-    border: 1px solid #eaeaea;
     border-radius: 0.25em;
-    background: #FBFBFB;
   }
   ${cssId} .g__filter-label{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: .8rem;
     color: #5d5d5d;
-    padding: 0 10px;
-    border-right: 1px solid #eaeaea;
     cursor: pointer;
-    background-color: #fff;
   }
   ${cssId} select{
     width: 100%;
     min-width: 150px;;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: 0;
+    border-bottom: 2px solid #EAEAEA;
     color: #5d5d5d;
     cursor: pointer;
+    background: transparent;
     padding: 0 10px;
     line-height: 1.1;
-    background: #FBFBFB;
   }
     `;
   let granite_css = document.getElementById("g__css_" + id);
@@ -121,7 +117,7 @@ export default function granite_filter(jsonBlock, jsonTheme) {
   if (o.label) {
     const filterLabel = document.createElement("label");
     filterLabel.classList.add("g__filter-label");
-    filterLabel.innerHTML = "Filter Name: ";
+    filterLabel.innerHTML = o.label;
     filterContainer.appendChild(filterLabel);
   }
 

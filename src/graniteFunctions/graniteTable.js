@@ -1,10 +1,10 @@
-export default function granite_scorecard(jsonScorecard, jsonTheme) {
+export default function graniteTable(jsonBlock, jsonTheme) {
   /*---------------------------------------------
     Global Variables
     ---------------------------------------------*/
-  const id = jsonScorecard.id;
-  const o = jsonScorecard.options;
-  const r = jsonScorecard.records;
+  const id = jsonBlock.id;
+  const o = jsonBlock.options;
+  const r = jsonBlock.records;
   const t = jsonTheme;
   const mode = !!t.mode ? t.mode : "midnight";
   const cssId = "#" + id;
@@ -41,11 +41,19 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
       border-collapse: collapse;
       border: 1px solid #EAEAEA;
     }
-    ${cssId} td,
+    ${cssId} td {
+      text-align: left;
+      padding: 10px;
+      font-size: 14px;
+    }
+    ${cssId} td .g__cell {
+      height: 30px;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
     ${cssId} tbody {
       text-align: left;
-      padding: 8px;
-      padding: 15px;
       font-size: 14px;
     }
     ${cssId} tr.g__header_spacer {
@@ -68,10 +76,10 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
       background: #E3E9FF;
     }
     ${cssId} tr.g__row{
-      border: 0px solid #EAEAEA;
+      border:1px solid #EAEAEA;
     }
     ${cssId} tr.g__row:nth-child(odd) {
-      background-color: #fff;
+      background-color: #f5f5f5;
     }
     ${cssId} tr.g__row:nth-child(even) {
       background-color: #fff;
@@ -96,6 +104,7 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
     ${cssId} thead tr{
       background: transparent;
       font-size: 1rem;
+      padding: 0;
     }
     ${cssId} .g__header.g__close_arrow td i {
       transform: rotate(180deg);
@@ -103,7 +112,41 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
     ${cssId} .g__hide-group {
       display: none;
     }
-
+    /*-------------------------------------
+    Arrow Link
+    -------------------------------------*/
+    ${cssId} .g__arrow-link{
+      width: 30px;
+      height: 30px;
+      background: #f5f5f5;
+      color: #A1A1A1;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s ease;
+    }
+    ${cssId} .g__arrow-link:hover{
+      cursor: pointer;
+      background: #d8d8d8;
+    }
+    /*-------------------------------------
+    Color Formatting
+    -------------------------------------*/
+    ${cssId} tr td.g__high{
+      background: #B9EBCA;
+      color: #6B9078;
+    }
+    ${cssId} tr td.g__medium{
+      background: #FCDECC;
+      color: #CD7A2D;
+    }
+    ${cssId} tr td.g__low{
+      background: #FFB8BE;
+      color: #D14551;
+    }
     /*-------------------------------------
     Column Filters
     -------------------------------------*/
@@ -247,6 +290,9 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
           th.innerHTML = cell.value;
           cell.filter ? th.appendChild(columnFilter(cell, index)) : "";
           cell.span ? th.setAttribute("colspan", cell.span) : "";
+          if (cell.sort) {
+            th.setAttribute("data-sort", true);
+          }
           headerRow.appendChild(th);
         });
         r.sort
@@ -279,20 +325,33 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
         r.top_space ? tr.classList.add("g__top-space") : "";
         r.children.forEach((cell) => {
           const td = document.createElement("td");
+          const tdDiv = document.createElement("div");
+          tdDiv.classList.add("g__cell");
+          td.appendChild(tdDiv);
           cell.background ? (td.style.backgroundColor = cell.background) : "";
           !!cell.format ? td.setAttribute("data-format", cell.format) : "";
           !!cell.currency ? td.setAttribute("data-curreny", cell.currency) : "";
           !!cell.border_right ? (td.style.borderRight = cell.border_right) : "";
           cell.span ? td.setAttribute("colspan", cell.span) : "";
-          td.setAttribute("data-org-value", cell.value);
+          cell.text_align === "center" ? (td.style.textAlign = "center") : "";
           cell.format
-            ? (td.innerHTML = formatValue(
+            ? (tdDiv.innerHTML = formatValue(
                 cell.value,
                 cell.format,
                 cell.currency,
-                cell.symbol
+                cell.symbol,
+                td
               ))
-            : (td.innerHTML = cell.value);
+            : (tdDiv.innerHTML = cell.value);
+          if (cell.chart) {
+            td.style.padding = "0";
+            const chartContainer = document.createElement("div");
+            chartContainer.id = `g__chart-${index}`;
+            chartContainer.style.height = "60px";
+            td.innerHTML = "";
+            td.classList.add("g__chart-cell");
+            td.appendChild(chartContainer);
+          }
           if (cell.action === "value") {
             let alert = setActionValue(cell);
             alert ? (td.style.backgroundColor = "#ffeded") : "";
@@ -305,6 +364,36 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
           tr.appendChild(td);
           tbody.appendChild(tr);
           table.appendChild(tbody);
+
+          if (cell.chart) {
+            anychart.onDocumentReady(function () {
+              // create data set on our data
+              var dataSet = anychart.data.set(cell.value);
+
+              // map data for the first series, take x from the zero column and value from the first column of data set
+              var seriesData = dataSet.mapAs({ x: 0, value: 1 });
+
+              // create line chart
+              var chart = anychart.line();
+              // turn on chart animation
+              chart.animation(true);
+              // turn on the crosshair
+              chart.yAxis().enabled(false);
+              chart.xAxis().enabled(false);
+
+              // create stepLine series with mapped data
+              chart
+                .line()
+                .data(seriesData)
+                .name("Value")
+                .stepDirection("forward");
+
+              // set container id for the chart
+              chart.container(`g__chart-${index}`);
+              // initiate chart drawing
+              chart.draw();
+            });
+          }
         });
         break;
       case "total":
@@ -341,7 +430,6 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
         break;
     }
   });
-  graniteDiv.appendChild(table);
   /*---------------------------------------------
     Collapable Sections
     ---------------------------------------------*/
@@ -598,54 +686,30 @@ export default function granite_scorecard(jsonScorecard, jsonTheme) {
   // filters.appendChild(search);
 
   /*---------------------------------------------
-    Dropdown Filter
+    AnyChart Builder
     ---------------------------------------------*/
-  let ddFilter = document.createElement("select");
-  ddFilter.id = "ddFilter_" + id;
-  let ddOptions = [
-    "Select Quarter",
-    "Donors Q1",
-    "Donors Q2",
-    "Donors Q3",
-    "Donors Q4",
-  ];
-  ddOptions.forEach((val, index) => {
-    let option = document.createElement("option");
-    option.innerHTML = val;
-    if (index === 0) {
-      option.selected = true;
-    }
-    ddFilter.appendChild(option);
-  });
-  ddFilter.addEventListener("change", () => {
-    let filter = ddFilter.value.toUpperCase();
-    let table = document.getElementById("g__" + id);
-    let tr = table.getElementsByTagName("tr");
-    for (let i = 0; i < tr.length; i++) {
-      if (!tr[i].classList.contains("g__header")) {
-        let td = tr[i].getElementsByTagName("td");
-        for (let j = 0; j < td.length; j++) {
-          if (td[j]) {
-            let txtValue = td[j].textContent || td[j].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-              break;
-            } else {
-              tr[i].style.display = "none";
-            }
-          }
-        }
-      }
-    }
-  });
-  // filters.appendChild(ddFilter);
+  function buildChart(cell, td) {
+    td.innerHTML = "Jason Bean";
+    return td;
+  }
 
   /*---------------------------------------------
     Formatter
     ---------------------------------------------*/
-  function formatValue(value, format, currency, symbol) {
+  function formatValue(value, format, currency, symbol, td) {
     let val;
     switch (format) {
+      case "score":
+        td.style.textAlign = "center";
+        if (value >= 7) {
+          td.classList.add("g__high");
+        } else if (value >= 4) {
+          td.classList.add("g__medium");
+        } else {
+          td.classList.add("g__low");
+        }
+        val = value;
+        break;
       case "percent":
         val = value + "%";
         break;

@@ -1311,7 +1311,6 @@ ${cssId} .g__radio_btn .g__radio_option input + .g__radio_label{
   color: ${radioFontColor};
   background: ${radioBkg};
   border: ${radioBorderWidth} solid ${radioBorderColor};
-  margin-right: 5px;
   padding-top: ${paddingTopRadio};
   padding-right: ${paddingRightRadio};
   padding-bottom: ${paddingBottomRadio};
@@ -1973,7 +1972,6 @@ ${cssId} .g__check_container [type="checkbox"]:disabled + label {
   /* -------------------- Standard Field Attributes ----------------------*/
   function basicAttributes(r, input, class_name) {
     input.setAttribute("class", class_name);
-    !!r.classes ? input.classList.add(r.classes) : "";
     !!r.g_type ? input.setAttribute("type", r.g_type) : "";
     !!attr__form_id ? input.setAttribute("form_id", attr__form_id) : "";
     !!r.name ? input.setAttribute("name", r.name) : "";
@@ -2085,6 +2083,7 @@ ${cssId} .g__check_container [type="checkbox"]:disabled + label {
           }
           let form_step = document.createElement("div");
           form_step.setAttribute("class", "g__step");
+          r.required ? form_step.classList.add("required-step") : "";
           form_step.setAttribute("data-step", stepCount);
           if (!!r.children) {
             let stepChild = parseRecord(r.children);
@@ -3159,7 +3158,10 @@ ${cssId} .g__check_container [type="checkbox"]:disabled + label {
   }
   // function validateForm() {
   //   // This function deals with validation of the form fields
-  //   var x, y, i, valid = true;
+  //   var x,
+  //     y,
+  //     i,
+  //     valid = true;
   //   x = document.getElementsByClassName("g__step");
   //   y = x[currStep].getElementsByTagName("input");
   //   // A loop that checks every input field in the current tab:
@@ -3174,7 +3176,8 @@ ${cssId} .g__check_container [type="checkbox"]:disabled + label {
   //   }
   //   // If the valid status is true, mark the step as finished and valid:
   //   if (valid) {
-  //     document.getElementsByClassName("g__step")[currStep].className += " finish";
+  //     document.getElementsByClassName("g__step")[currStep].className +=
+  //       " finish";
   //   }
   //   return valid; // return the valid status
   // }

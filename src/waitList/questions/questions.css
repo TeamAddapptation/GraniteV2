@@ -1,0 +1,211 @@
+.a__questions-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.a__bkg_wrapper {
+  position: relative;
+}
+.a__questions-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 5vh 5vw;
+  margin: 15px;
+  background: #ffffff;
+  box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  width: 600px;
+  z-index: 5;
+}
+.a__questions-container #sign-up-questions .g__radio_container {
+  flex-direction: column;
+}
+.a__bkg_img {
+  position: absolute;
+  bottom: -110px;
+  left: -230px;
+}
+.a__top-space {
+  margin-top: 50px;
+}
+.a__field-space {
+  margin-top: 30px;
+}
+.a__thank-you-header {
+  font-family: Hero New;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 50px;
+  text-align: center;
+
+  color: #000000;
+}
+.a__thank-you-body {
+  font-family: Hero New;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: center;
+  color: #5d5d5d;
+  margin-top: 0;
+}
+
+/* ---------- Label Styling ---------- */
+.a__questions-container #sign-up-questions .g__form_field label {
+  font-family: Hero New;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 50px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 30px;
+}
+.a__questions-container
+  #sign-up-questions
+  .g__radio_btn
+  .g__radio_option
+  input
+  + .g__radio_label {
+  font-size: 16px;
+  margin-right: 0;
+  border-radius: 50px;
+  border: 1px solid #eaeaea;
+  color: #5d5d5d;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.a__questions-container #sign-up-questions .g__radio_btn .g__radio_option {
+  flex: 1;
+  justify-content: center;
+  border-radius: 50px;
+  margin: 5px 0;
+  display: flex;
+}
+.a__questions-container
+  #sign-up-questions
+  .g__radio_btn
+  .g__radio_option
+  .g__radio_label:hover {
+  background: #ffffff;
+  border: 1px solid #5d50e6;
+}
+.a__questions-container
+  #sign-up-questions
+  .g__radio_btn
+  .g__radio_option
+  input:checked
+  + .g__radio_label {
+  background: #ffffff;
+  border: 1px solid #5d50e6;
+}
+.a__questions-container
+  #sign-up-questions
+  .g__radio_btn
+  .g__radio_option
+  input
+  + .g__radio_label:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #eaeaea;
+  background: #fff;
+  top: 16px;
+  left: 20px;
+  border-radius: 50%;
+}
+.a__questions-container
+  #sign-up-questions
+  .g__radio_btn
+  .g__radio_option
+  input:checked
+  + .g__radio_label:before {
+  background: #5d50e6;
+}
+/* ---------- Next Back Button ----------*/
+.a__questions-container #sign-up-questions .g__step_btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.a__questions-container #sign-up-questions .g__step_btns #g__prev_btn {
+  width: 100%;
+  order: 1;
+  display: none !important;
+}
+.a__questions-container #sign-up-questions .g__step_btns #g__next_btn {
+  font-family: Hero New;
+  font-style: normal;
+  font-weight: 400;
+  width: 100%;
+  order: 0;
+  background: #5d50e6;
+  border-radius: 45px;
+  padding: 20px 15px;
+}
+.a__questions-container #sign-up-questions .g__step_btns #g__next_btn:disabled {
+  background: #c4c4c4;
+}
+.a__questions-container
+  #sign-up-questions
+  .g__radio_btn
+  .g__radio_option
+  input
+  + .g__radio_label {
+  width: 100%;
+  text-align: center;
+}
+/* ---------- Dropdown Styling ---------- */
+.a__questions-container
+  #sign-up-questions
+  .g__default_picklist
+  .g__select_default {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: var(--field-padding);
+  line-height: 1.5;
+  background: #fff;
+  color: var(--font-color);
+  font-family: var(--font-regular);
+  font-weight: 300;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-bottom: 2px solid #c4c4c4;
+  border-radius: 0;
+  font-size: 16px;
+}
+
+.a__questions-container #sign-up-questions .g__form_field input {
+  font-family: Hero New;
+  font-style: normal;
+  font-weight: 400;
+  background: #fff;
+  border: 0;
+  border-bottom: 2px solid #c4c4c4;
+  border-radius: 0;
+  color: #101010;
+  font-size: 18px;
+  padding: var(--field-padding);
+  outline: none;
+}
+/* ---------- Submit ---------- */
+.a__questions-container #sign-up-questions .g__step_btns #g__submit_btn {
+  display: flex;
+  justify-content: center;
+  font-family: Hero New;
+  font-style: normal;
+  font-weight: 400;
+  width: 100%;
+  order: 0;
+  background: #5d50e6;
+  border-radius: 45px;
+  padding: 20px 15px;
+}

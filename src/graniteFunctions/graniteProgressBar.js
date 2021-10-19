@@ -81,9 +81,11 @@ export default function granite_code(jsonBlock, jsonTheme) {
       ${cssId} .g__progress-label {
         font-family: ${font_style};
         font-weight: 300;
+        white-space: nowrap;
         color: #202020;
-        font-size: 21px;
+        font-size: 16px;
         margin-bottom: 15px;
+        margin-right: 15px;
       }
       ${cssId} .g__progress_container{
         display: flex;
@@ -97,6 +99,7 @@ export default function granite_code(jsonBlock, jsonTheme) {
       ${cssId} .g__progress-details{
         font-size: 12px;
         font-weight: 400;
+        white-space: nowrap;
       }
       ${cssId} progress {
         border-radius: 7px;
@@ -131,7 +134,7 @@ export default function granite_code(jsonBlock, jsonTheme) {
     const progressLabel = document.createElement("h2");
     progressLabel.classList.add("g__progress-label");
     progressLabel.innerHTML = o.label;
-    granite_div.appendChild(progressLabel);
+    progressCont.appendChild(progressLabel);
   }
 
   const progress = document.createElement("progress");

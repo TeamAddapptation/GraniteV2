@@ -11,20 +11,6 @@ export default function granite_image(jsonBlock, jsonTheme) {
   const granite_div = document.getElementById(id);
 
   /*---------------------------------------------
-    Add Font Family To Header
-    ---------------------------------------------*/
-  const font_include = document.getElementById("g__font_stylesheet");
-  if (!font_include) {
-    var head = document.head;
-    var fontLink = document.createElement("link");
-    fontLink.type = "text/css";
-    fontLink.rel = "stylesheet";
-    fontLink.id = "g__font_stylesheet";
-    fontLink.href = "https://use.typekit.net/ihq4dbs.css";
-    head.appendChild(fontLink);
-  }
-
-  /*---------------------------------------------
     Set The mode
     ---------------------------------------------*/
   granite_div.setAttribute("mode", mode);
