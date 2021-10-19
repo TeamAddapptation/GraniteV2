@@ -26,7 +26,6 @@ export const welcomeFormJson = {
     activate_recaptcha: false,
     auto_superscript: false,
     autosave: false,
-    action: "/",
     // Design
     field_bkg_color: "#4b4b4b",
     field_border_color: "#4b4b4b",

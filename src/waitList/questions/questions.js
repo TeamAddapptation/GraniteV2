@@ -15,14 +15,5 @@ radioBtns.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     next.disabled = false;
     StrategyValue = btn.value;
-    // next.addEventListener("click", () => {
-    //   if (StrategyValue === "No") {
-    //     const tabs = document.querySelectorAll(".g__step");
-    //     tabs.forEach((tab) => {
-    //       tab.style.display = "none";
-    //     });
-    //     tabs[2].style.display = "block";
-    //   }
-    // });
   });
 });
