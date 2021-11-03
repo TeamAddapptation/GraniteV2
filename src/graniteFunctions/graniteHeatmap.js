@@ -25,6 +25,7 @@ export default function graniteHeatmap(json, jsonTheme) {
   scorecardCss.id = "g__css_" + id;
   scorecardCss.innerHTML = `
   ${cssId}{
+    overflow: auto;
     width: 100%;
   }
   ${cssId} .g__filters-container{
@@ -35,10 +36,12 @@ export default function graniteHeatmap(json, jsonTheme) {
       font-family: hero-new, sans-serif;
       font-weight: 400;
       font-style: normal;
+      background: #ffffff;
       width: 100%;
       margin: 0 auto;
       color: #5D5D5D;
-      table-layout: auto;
+      min-width: 600px;
+      table-layout: fixed;
     }
     ${cssId} td,
     ${cssId} tbody {
@@ -97,8 +100,8 @@ export default function graniteHeatmap(json, jsonTheme) {
     .g__heatmap-tooltip {
       opacity: 0;
       position: absolute;
-      top: 20;
-      left: 50%;
+      top: 20px;
+      right: 50%;
       width: 200px;
       background: #ffffff;
       padding: 15px;
@@ -173,6 +176,15 @@ export default function graniteHeatmap(json, jsonTheme) {
     }
     ${cssId} .g__formulas-menu ul.g__formulas-list li a:hover{
       color: #101010;
+    }
+    @media (max-width: 768px) {
+      ${cssId} [data-col-num="0"] {
+        width: 100px;
+      }
+      ${cssId} th{
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
       `;
   let granite_css = document.getElementById("g__css_" + id);
@@ -255,6 +267,7 @@ export default function graniteHeatmap(json, jsonTheme) {
         if (o.add_row) {
           const addRowHeader = document.createElement("th");
           addRowHeader.classList.add("g__td-add-header");
+          addRowHeader.style.width = "50px";
           addRowHeader.innerHTML = "<i class='fal fa-plus'></i>";
           headerRow.appendChild(addRowHeader);
         }
@@ -274,20 +287,27 @@ export default function graniteHeatmap(json, jsonTheme) {
           if (cell.heat_value) {
             td.classList.add("g__data-cell");
             td.style.backgroundColor = colorIndicator(o, cell);
-            if (o.tooltip) {
+            if (cell.tooltip_html) {
               const tooltip = document.createElement("div");
               tooltip.classList.add("g__heatmap-tooltip");
-              tooltip.innerHTML = `${cell.value}<br>Neglected apps - 4<br>Won deals ($) - $10,000`;
+              tooltip.innerHTML = `${cell.tooltip_html}`;
               td.appendChild(tooltip);
             }
           }
-          cell.show_value ? (td.innerHTML = cell.value) : "";
+          if (cell.show_value) {
+            td.innerHTML = cell.value;
+          }
+          if (cell.show_value && cell.heat_value) {
+            td.style.color = totalFontColor(o, cell);
+            td.style.textAlign = "center";
+          }
           td.setAttribute("data-org-value", cell.value);
           tr.appendChild(td);
         });
         if (o.add_row) {
           const addRow = document.createElement("td");
           addRow.classList.add("g__td-add");
+          addRow.style.width = "50px";
           tr.appendChild(addRow);
         }
         tbody.appendChild(tr);
@@ -298,21 +318,34 @@ export default function graniteHeatmap(json, jsonTheme) {
 
   graniteDiv.appendChild(table);
   /*---------------------------------------------
-    Collapable Sections
+    Linear Color Map
     ---------------------------------------------*/
-  let rowGroups = document.querySelectorAll(".g__header");
-  if (rowGroups) {
-    rowGroups.forEach((header) => {
-      header.addEventListener("click", () => {
-        let nextRow = header.nextElementSibling;
-        header.classList.toggle("g__close_arrow");
-        while (nextRow) {
-          if (nextRow.classList.contains("g__header")) break;
-          nextRow.classList.toggle("g__hide-group");
-          nextRow = nextRow.nextElementSibling;
-        }
-      });
-    });
+
+  function roundDown(num, precision) {
+    num = parseFloat(num);
+    if (!precision) return num.toLocaleString();
+
+    return (Math.floor(num / precision) * precision).toLocaleString() / 100;
+  }
+
+  function shadeHexColor(color, percent) {
+    var f = parseInt(color.slice(1), 16),
+      t = percent < 0 ? 0 : 255,
+      p = percent < 0 ? percent * -1 : percent,
+      R = f >> 16,
+      G = (f >> 8) & 0x00ff,
+      B = f & 0x0000ff;
+    return (
+      "#" +
+      (
+        0x1000000 +
+        (Math.round((t - R) * p) + R) * 0x10000 +
+        (Math.round((t - G) * p) + G) * 0x100 +
+        (Math.round((t - B) * p) + B)
+      )
+        .toString(16)
+        .slice(1)
+    );
   }
   /*---------------------------------------------
     Functions
@@ -324,19 +357,13 @@ export default function graniteHeatmap(json, jsonTheme) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   function colorIndicator(o, cell) {
-    const colors = [
-      "#E3F2FD",
-      "#BBDEFB",
-      "#90CAF9",
-      "#64B5F6",
-      "#42A5F5",
-      "#2196F3",
-      "#1E88E5",
-      "#1976D2",
-      "#1565C0",
-      "#0D47A1",
-    ];
-    let avgPosition = o.average.toString().charAt(0);
-    return colors[getRandomIntBetween(0, 9)];
+    let colorPercent = 1 - roundDown(cell.value, 10);
+    let bkgColor = shadeHexColor(o.color, colorPercent);
+    return bkgColor;
+  }
+  function totalFontColor(o, cell) {
+    let opacity = roundDown(cell.value, 10);
+    let fontColor = shadeHexColor(o.color, opacity);
+    return fontColor;
   }
 }
