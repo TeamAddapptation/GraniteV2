@@ -178,7 +178,7 @@ const jsonBlock = {
 
 ## Tooltip
 
-In order to active tooltips you must set the boolean attribute 'tooltip' to TRUE at the options level.
+In order to active tooltips you must set the boolean attribute ```tooltip``` to ```TRUE``` at the options level.
 
 At the records level the attribute 'tooltip_html' holds any HTML you'd like display in the the tooltip
 
