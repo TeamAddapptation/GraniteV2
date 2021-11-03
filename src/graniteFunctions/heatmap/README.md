@@ -2,9 +2,11 @@
 
 A heat map is a visualization of a data matrix where values are represented as colors.
 
-## Function Call
+All heatmap cells are based on a 0-100 scale. Color ranges are based on a tenth scale. 
 
-addapptations server-side logic calls the requested micro(s) and writes a DOM element with a unique id.
+## Unique ID and Function Call
+
+The HTML must include the unique ID for Granite to append the heatmap to the DOM.
 
 ```html
 <div id="granite-heatmap-demo"></div>
@@ -173,3 +175,27 @@ const jsonBlock = {
   ],
 };
 ```
+
+## Tooltip
+
+In order to active tooltips you must set the boolean attribute 'tooltip' to TRUE at the options level.
+
+At the records level the attribute 'tooltip_html' holds any HTML you'd like display in the the tooltip
+
+```js
+{
+  options: {
+    tooltip: true,
+  },
+  records: [
+    {
+      type: "row",
+      background: "",
+      children: [
+        { value: 91, heat_value: true, tooltip_html: "<p>HTML Tooltip</p>" },
+      ],
+     }
+  ],
+};
+```
+
