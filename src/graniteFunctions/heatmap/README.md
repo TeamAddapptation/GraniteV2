@@ -19,22 +19,12 @@ graniteHeatmap(jsonBlock, jsonTheme);
 ## JSON Block
 ```js
 const jsonBlock = {
-  id: "granite-heatmap-demo",
-  name: "Pipeline",
+  id: "overview-section-1",
   feature: "heatmap",
   options: {
     tooltip: true,
-    type: "scorecard",
     color: "#3BD870",
-    padding: "15px",
-    margin: "0",
-    bkg_img: "",
-    bkg_size: "",
-    bkg_repeat: "",
-    bkg_position: "center",
-    bkg_color: "",
     add_row: false,
-    average: 68,
   },
   records: [
     {
