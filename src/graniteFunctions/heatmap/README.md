@@ -21,7 +21,7 @@ graniteHeatmap(jsonBlock, jsonTheme);
 ## JSON Block
 ```js
 const jsonBlock = {
-  id: "overview-section-1",
+  id: "granite-heatmap-demo",
   feature: "heatmap",
   options: {
     tooltip: true,
